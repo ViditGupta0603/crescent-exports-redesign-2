@@ -72,15 +72,15 @@ const Bags = () => {
         </div>
 
         <div className="product">
-          <Swiper {...commonSwiperSettings}>
-            <SwiperSlide><a href="https://res.cloudinary.com/dhk9t1bus/image/upload/v1728401462/enuh02akdziqq7zgv7p3.jpg" target='_blank'><img loading="lazy" src="https://res.cloudinary.com/dhk9t1bus/image/upload/v1728401462/enuh02akdziqq7zgv7p3.jpg" alt="" /></a></SwiperSlide>
-            <SwiperSlide><a href="https://res.cloudinary.com/dhk9t1bus/image/upload/v1728401447/yzqph3knzi89s5fxfewy.jpg" target='_blank'><img loading="lazy" src="https://res.cloudinary.com/dhk9t1bus/image/upload/v1728401447/yzqph3knzi89s5fxfewy.jpg" alt="" /></a></SwiperSlide>
-          </Swiper>
+            <Swiper {...commonSwiperSettings}>
+              <SwiperSlide><a href="https://res.cloudinary.com/dhk9t1bus/image/upload/v1728401462/enuh02akdziqq7zgv7p3.jpg" target='_blank'><img loading="lazy" src="https://res.cloudinary.com/dhk9t1bus/image/upload/v1728401462/enuh02akdziqq7zgv7p3.jpg" alt="" /></a></SwiperSlide>
+              <SwiperSlide><a href="https://res.cloudinary.com/dhk9t1bus/image/upload/v1728401447/yzqph3knzi89s5fxfewy.jpg" target='_blank'><img loading="lazy" src="https://res.cloudinary.com/dhk9t1bus/image/upload/v1728401447/yzqph3knzi89s5fxfewy.jpg" alt="" /></a></SwiperSlide>
+            </Swiper>
 
-          <div className="productcontent">
-            <h2>LAMINATED STORAGE ORGANIZER</h2>
-            <h3>SIZE:- 10L X 15W X 6H</h3>
-          </div>
+            <div className="productcontent">
+              <h2>LAMINATED STORAGE ORGANIZER</h2>
+              <h3>SIZE:- 10L X 15W X 6H</h3>
+            </div>
 
         </div>
 

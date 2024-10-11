@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "slug": "rectangle-storage-laminated-printed-bag",
+    "name": "Rectangle Storage Laminated Printed",
+    "images": [
+      "https://res.cloudinary.com/dhk9t1bus/image/upload/v1728401447/zsontjrbt5crrtxvd6v0.jpg",
+      "https://res.cloudinary.com/dhk9t1bus/image/upload/v1728401447/w9aju2l9sshvfclgjhds.jpg",
+      "https://res.cloudinary.com/dhk9t1bus/image/upload/v1728401449/taxzqca6fu11hmwagqpm.jpg",
+      "https://res.cloudinary.com/dhk9t1bus/image/upload/v1728401449/sj17h1jf3mkhgoisrupc.jpg"
+    ],
+    "details": [
+      {
+        "size": "22L X 11W X 12H"
+      }
+    ],
+    "originalPrice": 2000,
+    "offerPrice": 1500,
+    "rating": 4.5,
+    "reviews": 10
+  },
+  {
+    "id": 2,
+    "slug": "square-storage-laminated-printed-bag",
+    "name": "Square Storage Laminated Printed",
+    "images": [
+      "https://res.cloudinary.com/dhk9t1bus/image/upload/v1728401451/bnroniheqgp0h9esjt3f.jpg",
+      "https://res.cloudinary.com/dhk9t1bus/image/upload/v1728401450/lhay6lm973ji1nmu8cad.jpg",
+      "https://res.cloudinary.com/dhk9t1bus/image/upload/v1728401457/gymjkmyxa8vwj1nk5d5z.jpg",
+      "https://res.cloudinary.com/dhk9t1bus/image/upload/v1728401457/mzs14hf7xnxjp5le3o4b.jpg",
+      "https://res.cloudinary.com/dhk9t1bus/image/upload/v1728401462/exjipuh0tsqvvwsqcw6c.jpg",
+      "https://res.cloudinary.com/dhk9t1bus/image/upload/v1728401462/fsxpsud6139sht0cki1f.jpg"
+    ],
+    "details": [
+      {
+        "size": "12L X 12W X 12H"
+      }
+    ],
+    "originalPrice": 1800,
+    "offerPrice": 1300,
+    "rating": 4.7,
+    "reviews": 8
+  },
+  {
+    "id": 3,
+    "slug": "laminated-storage-organizer",
+    "name": "Laminated Storage Organizer-bag",
+    "images": [
+      "https://res.cloudinary.com/dhk9t1bus/image/upload/v1728401462/enuh02akdziqq7zgv7p3.jpg",
+      "https://res.cloudinary.com/dhk9t1bus/image/upload/v1728401447/yzqph3knzi89s5fxfewy.jpg"
+    ],
+    "details": [
+      {
+        "size": "10L X 15W X 6H"
+      }
+    ],
+    "originalPrice": 1500,
+    "offerPrice": 1000,
+    "rating": 4.2,
+    "reviews": 5
+  }
+]
