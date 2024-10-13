@@ -9,9 +9,17 @@ import { Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, Autoplay } fr
 import 'swiper/css';
 import 'swiper/swiper-bundle.css';
 import { useState } from 'react';
+import { Link } from "react-router-dom";
 
 
 const Home = () => {
+  const NavigationLinks = [
+    {
+      title: "Products",
+      path: "/products",
+      isVisible: true,
+    }
+  ]
   const [direction, setDirection] = useState(-100)
 
     function handleDirection() {
@@ -47,12 +55,14 @@ const Home = () => {
         <p>In 2019, we launched a new venture, Crescent Export, dedicated to the export of our storage solutions.</p>
         <p>We are committed to delivering high-quality, eco-friendly, sustainable, and affordable products, ensuring timely delivery and customer satisfaction as our top priority.</p>
         {/* <p>Our main motive is to keep our customers happy.</p> */}
-        {/* <div className="enquirebutton"><motion.a whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} href="" target='_top'>ENQUIRE</motion.a></div> */}
+        <div className="enquirebutton"><motion.a whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} href="/Products" target='_top'>ENQUIRE</motion.a></div>
       </motion.div>
 
+      <Link to="/Products">
       <div className="homeproducts">
         <h1>Products</h1>
       </div>
+      </Link>
 
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y, EffectCoverflow, Autoplay]}
@@ -88,13 +98,13 @@ const Home = () => {
         }}
 
       >
-        <SwiperSlide><img className='homeproductspics' src={Pic1} alt="Picture 1" /></SwiperSlide>
-        <SwiperSlide><img className='homeproductspics' src="https://i.postimg.cc/VsTzS445/DSC00639.jpg" alt="Picture 1" /></SwiperSlide>
-        <SwiperSlide><img className='homeproductspics' src="https://i.postimg.cc/9QHVbM6h/DSC00653.jpg" alt="Picture 1" /></SwiperSlide>
-        <SwiperSlide><img className='homeproductspics' src="https://i.postimg.cc/TPC6Tcpd/DSC00655.jpg" alt="Picture 1" /></SwiperSlide>
-        <SwiperSlide><img className='homeproductspics' src="https://i.postimg.cc/cHCNC8nQ/DSC00681.jpg" alt="Picture 1" /></SwiperSlide>
-        <SwiperSlide><img className='homeproductspics' src="https://i.postimg.cc/zXg8TWP7/DSC00700.jpg" alt="Picture 1" /></SwiperSlide>       
-        <SwiperSlide><img className='homeproductspics' src="https://i.postimg.cc/W1mVHVVJ/DSC00804.jpg" alt="Picture 1" /></SwiperSlide>
+        <SwiperSlide><Link to="/Products"><img className='homeproductspics' src={Pic1} alt="Got to Product page" /></Link></SwiperSlide>
+        <SwiperSlide><Link to="/Products"><img className='homeproductspics' src="https://i.postimg.cc/VsTzS445/DSC00639.jpg" alt="Picture 1" /></Link></SwiperSlide>
+        <SwiperSlide><Link to="/Products"><img className='homeproductspics' src="https://i.postimg.cc/9QHVbM6h/DSC00653.jpg" alt="Picture 1" /></Link></SwiperSlide>
+        <SwiperSlide><Link to="/Products"><img className='homeproductspics' src="https://i.postimg.cc/TPC6Tcpd/DSC00655.jpg" alt="Picture 1" /></Link></SwiperSlide>
+        <SwiperSlide><Link to="/Products"><img className='homeproductspics' src="https://i.postimg.cc/cHCNC8nQ/DSC00681.jpg" alt="Picture 1" /></Link></SwiperSlide>
+        <SwiperSlide><Link to="/Products"><img className='homeproductspics' src="https://i.postimg.cc/zXg8TWP7/DSC00700.jpg" alt="Picture 1" /></Link></SwiperSlide>       
+        <SwiperSlide><Link to="/Products"><img className='homeproductspics' src="https://i.postimg.cc/W1mVHVVJ/DSC00804.jpg" alt="Picture 1" /></Link></SwiperSlide>
       </Swiper>
 
 
