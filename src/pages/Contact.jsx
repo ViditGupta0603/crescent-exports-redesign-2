@@ -4,18 +4,17 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Helmet } from "react-helmet-async";
-import emailjs from "@emailjs/browser";
 import { Loader2 } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
-import { color, motion } from "framer-motion"
-
-import { useState } from "react";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { set, useForm, useFormState } from "react-hook-form";
-import { z } from "zod";
+import { motion } from "framer-motion";
 
 import { AlertModal } from "@/components";
+import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
+import { useState } from "react";
+import { useForm, useFormState } from "react-hook-form";
+import { z } from "zod";
 
 import {
   Form,
@@ -28,6 +27,14 @@ import {
 } from "@/components/ui/form";
 
 const PhoneRegex = /^(\+\d{1,3}[- ]?)?\d{10}$|^0\d{10}$|^[1-9]\d{9}$/;
+
+const backendUrl =
+  import.meta.env.VITE_APP_BACKEND_URL || "http://localhost:8000";
+
+export const api = axios.create({
+  baseURL: backendUrl + "/api",
+  withCredentials: true,
+});
 
 const FormSchema = z.object({
   name: z
@@ -78,32 +85,35 @@ export default function Contact() {
 
   const onSubmit = async (data) => {
     try {
-      // const responseEmail = ResponseEmailTemplate({
-      //   name: data.name,
-      //   email: data.email,
-      //   phone: data.phone,
-      //   message: data.message,
-      // });
+      await api.post("/generate-token-for-mail", {
+        email: data.email,
+        phone: data.phone,
+        type: "contactus",
+      });
 
-      // await emailjs.sendForm(
-      //   import.meta.env.VITE_EMAILJS_SERVICE_ID,
-      //   import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-      //   {
-      //     name: data.name,
-      //     email: data.email,
-      //     phone: data.phone,
-      //     message: data.message,
-      //   },
-      //   { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY }
-      // );
+      await api.post("/send-enquiry-mail", {
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        message: data.message,
+        type: "contactus",
+      });
 
       setModalMessage({
         title: "Response Submitted",
         description: `Dear ${data.name}, your response has been submitted successfully. We will get back to you soon.`,
       });
-      setIsModalOpen(true);
-      // form.reset();
-      await new Promise(() => setTimeout(() => form.clearErrors(), 0));
+      form.reset({
+        name: "",
+        email: "",
+        message: "",
+        phone: "",
+        tnc: false,
+      });
+      form.clearErrors();
+        setTimeout(() => {
+          setIsModalOpen(true);
+        }, 10);
     } catch (error) {
       if (import.meta.env.MODE === "development") {
         console.error(error);
@@ -116,15 +126,16 @@ export default function Contact() {
     }
   };
 
+
   const embededLink =
     import.meta.env.VITE_APP_MAP_EMBED_LINK ||
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d83203.15320693795!2d77.09447691618303!3d28.627498366828036!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1ca864c98aa3%3A0x8d8e94d55f32e4ed!2sCrescent%20Exports%20Private%20Limited!5e0!3m2!1sen!2sin!4v1727654322766!5m2!1sen!2sin";
 
   return (
     <motion.div
-    initial={{  scale: 0.9, opacity: 0 }}
-    animate={{scale: 1, opacity: 1}}
-    transition={{ duration: 1 }}
+      initial={{ scale: 0.9, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 1 }}
     >
       <Helmet prioritizeSeoTags>
         <title className="contactustitle">Contact Us</title>
@@ -167,7 +178,7 @@ export default function Contact() {
                     name="name"
                     render={() => (
                       <FormItem>
-                        <FormLabel style={{color:"white"}}>
+                        <FormLabel style={{ color: "white" }}>
                           Name
                           <span className="text-destructive">*</span>
                         </FormLabel>
@@ -187,7 +198,7 @@ export default function Contact() {
                     name="email"
                     render={() => (
                       <FormItem>
-                        <FormLabel style={{color:"white"}}>
+                        <FormLabel style={{ color: "white" }}>
                           Email
                           <span className="text-destructive">*</span>
                         </FormLabel>
@@ -208,7 +219,7 @@ export default function Contact() {
                     name="phone"
                     render={() => (
                       <FormItem>
-                        <FormLabel style={{color:"white"}}>Phone</FormLabel>
+                        <FormLabel style={{ color: "white" }}>Phone</FormLabel>
                         <FormControl>
                           <Input
                             type="tel"
@@ -226,7 +237,7 @@ export default function Contact() {
                     name="message"
                     render={() => (
                       <FormItem>
-                        <FormLabel style={{color:"white"}}>
+                        <FormLabel style={{ color: "white" }}>
                           Message
                           <span className="text-destructive">*</span>
                         </FormLabel>
