@@ -55,7 +55,7 @@ const Home = () => {
         <p>In 2019, we launched a new venture, Crescent Export, dedicated to the export of our storage solutions.</p>
         <p>We are committed to delivering high-quality, eco-friendly, sustainable, and affordable products, ensuring timely delivery and customer satisfaction as our top priority.</p>
         {/* <p>Our main motive is to keep our customers happy.</p> */}
-        {/* <div className="enquirebutton"><motion.a whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} href="" target='_top'>ENQUIRE</motion.a></div> */}
+        <div className="enquirebutton"><motion.a whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} href="/Products" target='_top'>ENQUIRE</motion.a></div>
       </motion.div>
 
       <Link to="/Products">
